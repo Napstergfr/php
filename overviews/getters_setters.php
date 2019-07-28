@@ -1,0 +1,24 @@
+<?php
+    class Post{
+        private $name;
+        public function __set($name, $value)
+        {
+            echo 'Setting'.$name.' to <strong>'.$value.'</strong><br>';
+            $this->name=$value;
+        }
+        public function __get($name)
+        {
+            // TODO: Implement __get() method.
+            echo 'GEtting'.$name.' to <strong>'.$this->name.'</strong><br>';
+        }
+        public function __isset($name)
+        {
+            // TODO: Implement __isset() method.
+            echo 'Is '.$name.' set? <br>';
+            return isset($this->name);
+        }
+    }
+    $post = new Post;
+    $post->name="Testing";
+    echo $post->name;
+    var_dump(isset($post->name));
